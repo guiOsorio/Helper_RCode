@@ -348,19 +348,37 @@ reg_eq2(2.25) #20.0175
 #Import those predicted values into an object named mileage 
 #predicted and list the first and last three elements.
 
+mileage_predicted2 <- fitted(E12_5_lm3)
+
 # 32. Add the mileage predicted object (created in the preceding 
 #exercise) to E12_5, and name the resulting object E12_6. List 
-#the rst and last four elements. Find the correlation of the 
+#the first and last four elements. Find the correlation of the 
 #actual and predicted variables; that is, the correlation of 
 #MPG.city and mileage predicted. Once you have the correlation, 
 #square it (i.e., raise it to the second power). Comment on the 
 #square of the correlation. What is it?
+
+E12_6 <- mutate(E12_5, mileage_predicted = mileage_predicted2)
+head(E12_6,4)
+tail(E12_6,4)
+
+cor(E12_6$MPG.city, E12_6$mileage_predicted)
+cor(E12_6$MPG.city, E12_6$mileage_predicted)^2
+# This corresponds to the r2 of our linear model, meaning the
+#explanatory power of the independent variable in the dependent
+#variable
 
 # 33. Create a scatterplot with MPG.city on the vertical axis, 
 #Engine Size on the horizontal axis. Add labels to both axes as 
 #well as a main title; set blue as the color of the points. 
 #Finally, using the abline() function, add a regression line to 
 #the scatterplot.
+
+ggplot(E12_6, aes(x=EngineSize, y=MPG.city)) +
+  geom_point(col="blue") +
+  geom_line(aes(x=EngineSize, y=mileage_predicted)) +
+  labs(x="Engine Size (liters)", y="City miles per gallon", title="Results VS Regression Line")
+  
 
 
 

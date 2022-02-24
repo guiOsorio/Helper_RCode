@@ -47,7 +47,7 @@ ggplot(data=E12_1 ,aes(x=EngineSize, y=ES_MPG_lm$residuals)) +
 
 #4. There are several possible methods for managing the problem of 
 #nonlinear relationships among variables, such as what we have 
-#encountered in this case. One of theapproaches involves transforming 
+#encountered in this case. One of the approaches involves transforming 
 #the variables-by way of logarithms, exponents, etc.-in such a way 
 #that they are forced to be more linearly related. (This class of 
 #methods, sometimes referred to as GLM or general linear model, is 
@@ -200,7 +200,7 @@ reg_eq(2.25) #21.6925
 # 16. What are the predicted values of MPG.city that were used to 
 #calibrate the estimated regression equation y = 46.15-10.87x? 
 #Import those predicted values into an object named mileage predicted 
-#and list the rst and last three elements.
+#and list the first and last three elements.
 
 mileage_predicted <- fitted(ES_MPG_lm2)
 head(mileage_predicted,3)
